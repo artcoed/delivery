@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/DINRoundPro/DINRoundPro.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a class="header__logotype" href="/"></a>
+
+            <nav class="nav">
+                <ul class="header__list">
+                    <li class="header__item"><a href="/" class="header__link">Главная</a></li>
+                    <li class="header__item"><a href="/send.html" class="header__link">Услуги</a></li>
+                    <li class="header__item"><a href="/graph.html" class="header__link">График работы</a></li>
+                    <li class="header__item"><a href="/stats.html" class="header__link">Статистика</a></li>
+                    <li class="header__item"><a href="/tracking.html" class="header__link">Статус отправления</a></li>
+                    <li class="header__item"><a href="/questions.html" class="header__link">Помощь</a></li>
+                    <li class="header__item"><a href="/error.html" class="header__link">Карта точек</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__button" onclick="toggleAuthorizationMenu()">Вход</button>
+            <div class="burger-header-container">
+                <button class="header__burger-menu" onclick="toggleBurgerMenu()">
+                    <span class="header__burger-line header__burger-top-line"></span>
+                    <span class="header__burger-line header__burger-middle-line"></span>
+                    <span class="header__burger-line header__burger-bottom-line"></span>
+                </button>
+                <header class="burger-header">
+                    <nav class="burger-nav">
+                        <ul class="burger-nav__list">
+                            <li class="burger-nav__item"><a href="/" class="header__link">Главная</a></li>
+                            <li class="burger-nav__item"><a href="/send.html" class="header__link">Услуги</a></li>
+                            <li class="burger-nav__item"><a href="/graph.html" class="header__link">График работы</a></li>
+                            <li class="burger-nav__item"><a href="/stats.html" class="header__link">Статистика</a></li>
+                            <li class="burger-nav__item"><a href="/tracking.html" class="header__link">Статус отправления</a></li>
+                            <li class="burger-nav__item"><a href="/questions.html" class="header__link">Помощь</a></li>
+                            <li class="burger-nav__item burger-last-nav__item"><a href="/error.html" class="header__link">Карта точек</a></li>
+                        </ul>
+                    </nav>
+
+                    <button class="burger__button" onclick="toggleAuthorizationMenu()">Вход</button>
+                </header>
+                <div class="burger__background" onclick="toggleBurgerMenu()"></div>
+            </div>
+        </div>
+    </header>
+    <header class="under-header">
+        <div class="under-header__container">
+            <h3 class="under-header__title">Где мой заказ?</h3>
+
+            <form action="post" class="under-header__form">
+                <input type="text" class="under-header__input">
+                <button type="submit" class="under-header__button">
+                    <p class="under-header__button-text">
+                        Найти
+                    </p>
+                    <img class="under-header__button-arrow" src="./images/under-header-button-icon.svg" alt="">
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <section  class="authorization">
+        <div class="authorization__background"></div>
+        <div class="authorization__wrapper">
+            <div class="authorization__container">
+                <button type="button" class="authorization__close-button" onclick="toggleAuthorizationMenu()">
+                    <img class="authorization__close-icon" src="./images/close-icon.svg" alt="">
+                </button>
+                <form action="post" class="authorization__form authorization__log-in-form">
+                    <div class="authorization__meanig authorization__log-in-meanig">
+                        <div class="authorization__icon authorization__log-in__icon"></div>
+                        <h1 class="authorization__title">Вход в аккаунт</h1>
+                    </div>
+                    <h3 class="authorization__input-title">Электронная почта</h3>
+                    <input type="text" class="authorization__input authorization__input-login">
+                    <p class="authorization__input-description">Мы отправим код для подтверждения</p>
+                    <h3 class="authorization__input-title authorization__input-title-password">Пароль</h3>
+                    <input type="password" class="authorization__input authorization__input-login">
+                    <button class="authorization__button" type="submit">Войти в личный кабинет</button>
+                    <p class="authorization__redirectText">
+                        <button onclick="swichAuthorizationType()" type="button" class="authorization__redirectLink">Зарегистрируйтесь</button>, если еще не сделали этого.
+                    </p>
+                </form>
+                <form action="post" class="authorization__form authorization__sign-up-form">
+                    <div class="authorization__meanig authorization__sign-up-meanig">
+                        <div class="authorization__icon authorization__sign-up__icon"></div>
+                        <h1 class="authorization__title">Регистрация</h1>
+                    </div>
+                    <div class="authorization__phone sign-in__phone">
+                        <div class="authorization__phone-code">
+                            <h3 class="authorization__input-title">Код страны</h3>
+                            <input type="text" class="authorization__input authorization__phone-code-input">
+                        </div>
+                        <div class="authorization__phone-number">
+                            <h3 class="authorization__input-title">Телефон</h3>
+                            <input type="text" class="authorization__input authorization__phone-number-input">
+                            <p class="authorization__input-description">например, 916 123 56 777</p>
+                        </div>
+                    </div>
+                    <h3 class="authorization__input-title sign-in-mail">Электронная почта</h3>
+                    <input type="text" class="authorization__input">
+                    <p class="authorization__input-description">Мы отправим код для подтверждения</p>
+                    <h3 class="authorization__input-title sign-in__password">Пароль</h3>
+                    <input type="password" class="authorization__input">
+                    <div class="authorization__agreement">
+                        <button type="button" class="authorization__agreement-button"></button>
+                        <p class="authorization__agreement-text">
+                            Я принимаю условия <a class="authorization__agreement-link" href="#">Пользовательского соглашения и Политики в отношении обработки персональных данных</a>
+                        </p>
+                    </div>
+                    <button class="authorization__button" type="submit">Зарегистрироваться</button>
+                    <p class="authorization__redirectText">
+                        <button onclick="swichAuthorizationType()" type="button" class="authorization__redirectLink">Войдите</button>, если уже зарегистррованы.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="stats">
+        <div class="container stats__container">
+            <div class="stats__city">
+                <p class="stats__city-designation">Город</p>
+                <p class="stats__city-text">Оренбург, Оренбургская область</p>
+            </div>
+
+            <ul class="stats__department-list">
+                <li class="stats__department-item">
+                    <a class="stats__department-short-info" href="/stats-block.html">
+                        <h2 class="stats__department-title">Отделение №332</h2>
+                        <p class="stats__department-adress">адрес почтового отделения тут</p>
+                        <p class="stats__department-status-designation">Текущий статус отделения</p>
+                        <p class="stats__department-status">Загружен</p>
+                        <p class="stats__department-get-adress">будет доступен через 24 часа или ранее
+                            мы сообщим вам</p>
+                    </a>
+                    <h2 class="stats__departament-statuses-designation">Статусы отделения</h2>
+                    <ul class="stats__departament-statuses-list">
+                        <li class="departament-statuses-item departament-send-statuses-item">
+                            <div class="departament-statuses-icon"></div>
+                            <div class="departament-statuses-container">
+                                <p class="departament-statuses-amount">отправлено 445 посылок</p>
+                                <p class="departament-statuses-date">на момент 23.11.2021 (23:18)</p>
+                            </div>
+                        </li>
+                        <li class="departament-statuses-item">
+                            <div class="departament-statuses-icon"></div>
+                            <div class="departament-statuses-container">
+                                <p class="departament-statuses-amount">отдано 45 посылок </p>
+                                <p class="departament-statuses-date">на момент 23.11.2021 (13:18)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="stats__department-item stats__department-center-item">
+                    <a class="stats__department-short-info" href="/stats-block.html">
+                        <h2 class="stats__department-title">Отделение №36662</h2>
+                        <p class="stats__department-adress">адрес почтового отделения тут</p>
+                        <p class="stats__department-status-designation">Текущий статус отделения</p>
+                        <p class="stats__department-status">Доступен</p>
+                        <p class="stats__department-get-adress">вы можете сделать заказ доставки на этот адрес</p>
+                    </a>
+                    <h2 class="stats__departament-statuses-designation">Статусы отделения</h2>
+                    <ul class="stats__departament-statuses-list">
+                        <li class="departament-statuses-item departament-send-statuses-item">
+                            <div class="departament-statuses-icon"></div>
+                            <div class="departament-statuses-container">
+                                <p class="departament-statuses-amount">отправлено 445 посылок</p>
+                                <p class="departament-statuses-date">на момент 23.11.2021 (23:18)</p>
+                            </div>
+                        </li>
+                        <li class="departament-statuses-item">
+                            <div class="departament-statuses-icon"></div>
+                            <div class="departament-statuses-container">
+                                <p class="departament-statuses-amount">отдано 45 посылок </p>
+                                <p class="departament-statuses-date">на момент 23.11.2021 (13:18)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="stats__department-item">
+                    <a class="stats__department-short-info" href="/stats-block.html">
+                        <h2 class="stats__department-title">Отделение №352</h2>
+                        <p class="stats__department-adress">адрес почтового отделения тут</p>
+                        <p class="stats__department-status-designation">Текущий статус отделения</p>
+                        <p class="stats__department-status">Загружен</p>
+                        <p class="stats__department-get-adress">будет доступен через 24 часа или ранее
+                            мы сообщим вам</p>
+                    </a>
+                    <h2 class="stats__departament-statuses-designation">Статусы отделения</h2>
+                    <ul class="stats__departament-statuses-list">
+                        <li class="departament-statuses-item departament-send-statuses-item">
+                            <div class="departament-statuses-icon"></div>
+                            <div class="departament-statuses-container">
+                                <p class="departament-statuses-amount">отправлено 445 посылок</p>
+                                <p class="departament-statuses-date">на момент 23.11.2021 (23:18)</p>
+                            </div>
+                        </li>
+                        <li class="departament-statuses-item">
+                            <div class="departament-statuses-icon"></div>
+                            <div class="departament-statuses-container">
+                                <p class="departament-statuses-amount">отдано 45 посылок </p>
+                                <p class="departament-statuses-date">на момент 23.11.2021 (13:18)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        const burgerMenu = document.querySelector(".burger-header-container");
+
+        function toggleBurgerMenu()
+        {
+            burgerMenu.classList.toggle("active");
+        }
+
+        const authorizationMenu = document.querySelector(".authorization");
+        function toggleAuthorizationMenu()
+        {
+            authorizationMenu.classList.toggle("active");
+        }
+
+        function swichAuthorizationType()
+        {
+            authorizationMenu.classList.toggle("register");
+        }
+    </script>
+</body>
+</html>

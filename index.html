@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/DINRoundPro/DINRoundPro.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a class="header__logotype" href="/"></a>
+
+            <nav class="nav">
+                <ul class="header__list">
+                    <li class="header__item"><a href="/" class="header__link">Главная</a></li>
+                    <li class="header__item"><a href="/send.html" class="header__link">Услуги</a></li>
+                    <li class="header__item"><a href="/graph.html" class="header__link">График работы</a></li>
+                    <li class="header__item"><a href="/stats.html" class="header__link">Статистика</a></li>
+                    <li class="header__item"><a href="/tracking.html" class="header__link">Статус отправления</a></li>
+                    <li class="header__item"><a href="/questions.html" class="header__link">Помощь</a></li>
+                    <li class="header__item"><a href="/error.html" class="header__link">Карта точек</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__button" onclick="toggleAuthorizationMenu()">Вход</button>
+            <div class="burger-header-container">
+                <button class="header__burger-menu" onclick="toggleBurgerMenu()">
+                    <span class="header__burger-line header__burger-top-line"></span>
+                    <span class="header__burger-line header__burger-middle-line"></span>
+                    <span class="header__burger-line header__burger-bottom-line"></span>
+                </button>
+                <header class="burger-header">
+                    <nav class="burger-nav">
+                        <ul class="burger-nav__list">
+                            <li class="burger-nav__item"><a href="/" class="header__link">Главная</a></li>
+                            <li class="burger-nav__item"><a href="/send.html" class="header__link">Услуги</a></li>
+                            <li class="burger-nav__item"><a href="/graph.html" class="header__link">График работы</a></li>
+                            <li class="burger-nav__item"><a href="/stats.html" class="header__link">Статистика</a></li>
+                            <li class="burger-nav__item"><a href="/tracking.html" class="header__link">Статус отправления</a></li>
+                            <li class="burger-nav__item"><a href="/questions.html" class="header__link">Помощь</a></li>
+                            <li class="burger-nav__item burger-last-nav__item"><a href="/error.html" class="header__link">Карта точек</a></li>
+                        </ul>
+                    </nav>
+
+                    <button class="burger__button" onclick="toggleAuthorizationMenu()">Вход</button>
+                </header>
+                <div class="burger__background" onclick="toggleBurgerMenu()"></div>
+            </div>
+        </div>
+    </header>
+    <header class="under-header">
+        <div class="under-header__container">
+            <h3 class="under-header__title">Где мой заказ?</h3>
+
+            <form action="post" class="under-header__form">
+                <input type="text" class="under-header__input">
+                <button type="submit" class="under-header__button">
+                    <p class="under-header__button-text">
+                        Найти
+                    </p>
+                    <img class="under-header__button-arrow" src="./images/under-header-button-icon.svg" alt="">
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <section  class="authorization">
+        <div class="authorization__background"></div>
+        <div class="authorization__wrapper">
+            <div class="authorization__container">
+                <button type="button" class="authorization__close-button" onclick="toggleAuthorizationMenu()">
+                    <img class="authorization__close-icon" src="./images/close-icon.svg" alt="">
+                </button>
+                <form action="post" class="authorization__form authorization__log-in-form">
+                    <div class="authorization__meanig authorization__log-in-meanig">
+                        <div class="authorization__icon authorization__log-in__icon"></div>
+                        <h1 class="authorization__title">Вход в аккаунт</h1>
+                    </div>
+                    <h3 class="authorization__input-title">Электронная почта</h3>
+                    <input type="text" class="authorization__input authorization__input-login">
+                    <p class="authorization__input-description">Мы отправим код для подтверждения</p>
+                    <h3 class="authorization__input-title authorization__input-title-password">Пароль</h3>
+                    <input type="password" class="authorization__input authorization__input-login">
+                    <button class="authorization__button" type="submit">Войти в личный кабинет</button>
+                    <p class="authorization__redirectText">
+                        <button onclick="swichAuthorizationType()" type="button" class="authorization__redirectLink">Зарегистрируйтесь</button>, если еще не сделали этого.
+                    </p>
+                </form>
+                <form action="post" class="authorization__form authorization__sign-up-form">
+                    <div class="authorization__meanig authorization__sign-up-meanig">
+                        <div class="authorization__icon authorization__sign-up__icon"></div>
+                        <h1 class="authorization__title">Регистрация</h1>
+                    </div>
+                    <div class="authorization__phone sign-in__phone">
+                        <div class="authorization__phone-code">
+                            <h3 class="authorization__input-title">Код страны</h3>
+                            <input type="text" class="authorization__input authorization__phone-code-input">
+                        </div>
+                        <div class="authorization__phone-number">
+                            <h3 class="authorization__input-title">Телефон</h3>
+                            <input type="text" class="authorization__input authorization__phone-number-input">
+                            <p class="authorization__input-description">например, 916 123 56 777</p>
+                        </div>
+                    </div>
+                    <h3 class="authorization__input-title sign-in-mail">Электронная почта</h3>
+                    <input type="text" class="authorization__input">
+                    <p class="authorization__input-description">Мы отправим код для подтверждения</p>
+                    <h3 class="authorization__input-title sign-in__password">Пароль</h3>
+                    <input type="password" class="authorization__input">
+                    <div class="authorization__agreement">
+                        <button type="button" class="authorization__agreement-button"></button>
+                        <p class="authorization__agreement-text">
+                            Я принимаю условия <a class="authorization__agreement-link" href="#">Пользовательского соглашения и Политики в отношении обработки персональных данных</a>
+                        </p>
+                    </div>
+                    <button class="authorization__button" type="submit">Зарегистрироваться</button>
+                    <p class="authorization__redirectText">
+                        <button onclick="swichAuthorizationType()" type="button" class="authorization__redirectLink">Войдите</button>, если уже зарегистррованы.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="home">
+            <div class="container home__container">
+                <h3 class="home__advantage">№1 во всей стране</h3>
+                <h1 class="home__title">Экспресс-доставка</h1>
+                <h2 class="home__subtitle">по всей России</h2>
+                <p class="home__description">Доставка вещей, еды и электроника за считанные часы</p>
+                <button class="home__button home__buy-button">Заказать</button>
+                <button onclick="toggleHomeMoreInfo()" class="home__button home__more-button">Подробнее</button>
+
+                <div class="home__more">
+                    <div class="home__more-background"></div>
+                    <div class="home__more-container-content">
+                        <div class="home__more-content">
+                            <button onclick="toggleHomeMoreInfo()" class="home__more-close-button" onclick="">
+                                <img class="home__more-close-icon" src="./images/close-icon.svg" alt="">
+                            </button>
+
+                            <h1 class="home__more-title">О нас</h1>
+                            <p class="home__more-text">
+                                Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. Мы такая то такая то почта у нас ест то-то то-то и этого нет ни у кого больше вообще да. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="general">
+                    <h1 class="general__title">Общая информация об услугах в отделении</h1>
+                    <h2 class="general__designaton">Во всех отделениях почты можно:</h2>
+                    <ul class="general__list">
+                        <li class="general__item">отправлять и получать письма, посылки, открытки;</li>
+                        <li class="general__item">оформлять денежные переводы;</li>
+                        <li class="general__item">покупать упаковочные материалы;</li>
+                        <li class="general__item">пользоваться услугами упаковщика;</li>
+                        <li class="general__item">оформлять подписку на газеты и журналы;</li>
+                        <li class="general__item">получать пенсии и пособия;</li>
+                        <li class="general__item">оплачивать услуги и штрафы;</li>
+                        <li class="general__item">выплачивать кредиты;</li>
+                        <li class="general__item">отправлять документы в вузы;</li>
+                        <li class="general__item">отправлять официальные запросы в госорганы и миграционные уведомления;</li>
+                        <li class="general__item">покупать марки и маркированные конверты.</li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <section class="graph home__graph">
+            <div class="container graph__container">
+                <h1 class="graph__title">График работы отделений</h1>
+
+                <div class="graph__data">
+                    <div class="graph__info-container">
+                        <h2 class="graph__info-title mail">Почтовое отделение №3948392</h2>
+                        <p class="graph__info-signature">обл Оренбургская, г. Оренбург, ул. Чкалова 11</p>
+                        <h2 class="graph__info-title graph-work">График работы</h2>
+                        <p class="graph__info-current-closetime">Открыто до 20:00</p>
+                        <div class="graph__uls-container">
+                            <div class="graph__weekend-list-container">
+                                <ul class="graph__weekend-list">
+                                    <li class="graph__weekend-item">
+                                        <p class="graph__weekend-date">31 дек, пт</p>
+                                        <p class="graph__weekend-description">выходной</p>
+                                    </li>
+                                    <li class="graph__weekend-item">
+                                        <p class="graph__weekend-date">1 янв, сб</p>
+                                        <p class="graph__weekend-description">выходной</p>
+                                    </li>
+                                    <li class="graph__weekend-item">
+                                        <p class="graph__weekend-date">2 яснв, вс</p>
+                                        <p class="graph__weekend-description">выходной</p>
+                                    </li>
+                                    <li class="graph__weekend-item">
+                                        <p class="graph__weekend-date">7 явн, пт</p>
+                                        <p class="graph__weekend-description">выходной</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <ul class="graph__timetable-list">
+                                <li class="graph__timetable-item">
+                                    <p class="graph__timetable-name">пн-пт</p>
+                                    <div class="graph__timetable-worktime">
+                                        <p class="graph__timetable-date">8:00-20:00</p> 
+                                        <p class="graph__timetable-break">перерыв 13:00-14:00</p>
+                                    </div>
+                                </li>
+                                <li class="graph__timetable-item">
+                                    <p class="graph__timetable-name">сб</p>
+                                    <div class="graph__timetable-worktime">
+                                        <p class="graph__timetable-date">8:00-18:00</p> 
+                                        <p class="graph__timetable-break">перерыв 13:00-14:00</p>
+                                    </div>
+                                </li>
+                                <li class="graph__timetable-item">
+                                    <p class="graph__timetable-name">вс</p>
+                                    <div class="graph__timetable-worktime">
+                                        <p class="graph__timetable-date">Выходной</p> 
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img class="graph__map" src="./images/graph-map.png" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const burgerMenu = document.querySelector(".burger-header-container");
+
+        function toggleBurgerMenu()
+        {
+            burgerMenu.classList.toggle("active");
+        }
+
+        const authorizationMenu = document.querySelector(".authorization");
+        function toggleAuthorizationMenu()
+        {
+            authorizationMenu.classList.toggle("active");
+        }
+
+        function swichAuthorizationType()
+        {
+            authorizationMenu.classList.toggle("register");
+        }
+
+
+        const homeMore = document.querySelector(".home__more");
+        function toggleHomeMoreInfo()
+        {
+            homeMore.classList.toggle("active");
+        }
+
+    </script>
+</body>
+</html>

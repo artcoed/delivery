@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/DINRoundPro/DINRoundPro.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a class="header__logotype" href="/"></a>
+
+            <nav class="nav">
+                <ul class="header__list">
+                    <li class="header__item"><a href="/" class="header__link">Главная</a></li>
+                    <li class="header__item"><a href="/send.html" class="header__link">Услуги</a></li>
+                    <li class="header__item"><a href="/graph.html" class="header__link">График работы</a></li>
+                    <li class="header__item"><a href="/stats.html" class="header__link">Статистика</a></li>
+                    <li class="header__item"><a href="/tracking.html" class="header__link">Статус отправления</a></li>
+                    <li class="header__item"><a href="/questions.html" class="header__link">Помощь</a></li>
+                    <li class="header__item"><a href="/error.html" class="header__link">Карта точек</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__button" onclick="toggleAuthorizationMenu()">Вход</button>
+            <div class="burger-header-container">
+                <button class="header__burger-menu" onclick="toggleBurgerMenu()">
+                    <span class="header__burger-line header__burger-top-line"></span>
+                    <span class="header__burger-line header__burger-middle-line"></span>
+                    <span class="header__burger-line header__burger-bottom-line"></span>
+                </button>
+                <header class="burger-header">
+                    <nav class="burger-nav">
+                        <ul class="burger-nav__list">
+                            <li class="burger-nav__item"><a href="/" class="header__link">Главная</a></li>
+                            <li class="burger-nav__item"><a href="/send.html" class="header__link">Услуги</a></li>
+                            <li class="burger-nav__item"><a href="/graph.html" class="header__link">График работы</a></li>
+                            <li class="burger-nav__item"><a href="/stats.html" class="header__link">Статистика</a></li>
+                            <li class="burger-nav__item"><a href="/tracking.html" class="header__link">Статус отправления</a></li>
+                            <li class="burger-nav__item"><a href="/questions.html" class="header__link">Помощь</a></li>
+                            <li class="burger-nav__item burger-last-nav__item"><a href="/error.html" class="header__link">Карта точек</a></li>
+                        </ul>
+                    </nav>
+
+                    <button class="burger__button" onclick="toggleAuthorizationMenu()">Вход</button>
+                </header>
+                <div class="burger__background" onclick="toggleBurgerMenu()"></div>
+            </div>
+        </div>
+    </header>
+    <header class="under-header">
+        <div class="under-header__container">
+            <h3 class="under-header__title">Где мой заказ?</h3>
+
+            <form action="post" class="under-header__form">
+                <input type="text" class="under-header__input">
+                <button type="submit" class="under-header__button">
+                    <p class="under-header__button-text">
+                        Найти
+                    </p>
+                    <img class="under-header__button-arrow" src="./images/under-header-button-icon.svg" alt="">
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <section  class="authorization">
+        <div class="authorization__background"></div>
+        <div class="authorization__wrapper">
+            <div class="authorization__container">
+                <button type="button" class="authorization__close-button" onclick="toggleAuthorizationMenu()">
+                    <img class="authorization__close-icon" src="./images/close-icon.svg" alt="">
+                </button>
+                <form action="post" class="authorization__form authorization__log-in-form">
+                    <div class="authorization__meanig authorization__log-in-meanig">
+                        <div class="authorization__icon authorization__log-in__icon"></div>
+                        <h1 class="authorization__title">Вход в аккаунт</h1>
+                    </div>
+                    <h3 class="authorization__input-title">Электронная почта</h3>
+                    <input type="text" class="authorization__input authorization__input-login">
+                    <p class="authorization__input-description">Мы отправим код для подтверждения</p>
+                    <h3 class="authorization__input-title authorization__input-title-password">Пароль</h3>
+                    <input type="password" class="authorization__input authorization__input-login">
+                    <button class="authorization__button" type="submit">Войти в личный кабинет</button>
+                    <p class="authorization__redirectText">
+                        <button onclick="swichAuthorizationType()" type="button" class="authorization__redirectLink">Зарегистрируйтесь</button>, если еще не сделали этого.
+                    </p>
+                </form>
+                <form action="post" class="authorization__form authorization__sign-up-form">
+                    <div class="authorization__meanig authorization__sign-up-meanig">
+                        <div class="authorization__icon authorization__sign-up__icon"></div>
+                        <h1 class="authorization__title">Регистрация</h1>
+                    </div>
+                    <div class="authorization__phone sign-in__phone">
+                        <div class="authorization__phone-code">
+                            <h3 class="authorization__input-title">Код страны</h3>
+                            <input type="text" class="authorization__input authorization__phone-code-input">
+                        </div>
+                        <div class="authorization__phone-number">
+                            <h3 class="authorization__input-title">Телефон</h3>
+                            <input type="text" class="authorization__input authorization__phone-number-input">
+                            <p class="authorization__input-description">например, 916 123 56 777</p>
+                        </div>
+                    </div>
+                    <h3 class="authorization__input-title sign-in-mail">Электронная почта</h3>
+                    <input type="text" class="authorization__input">
+                    <p class="authorization__input-description">Мы отправим код для подтверждения</p>
+                    <h3 class="authorization__input-title sign-in__password">Пароль</h3>
+                    <input type="password" class="authorization__input">
+                    <div class="authorization__agreement">
+                        <button type="button" class="authorization__agreement-button"></button>
+                        <p class="authorization__agreement-text">
+                            Я принимаю условия <a class="authorization__agreement-link" href="#">Пользовательского соглашения и Политики в отношении обработки персональных данных</a>
+                        </p>
+                    </div>
+                    <button class="authorization__button" type="submit">Зарегистрироваться</button>
+                    <p class="authorization__redirectText">
+                        <button onclick="swichAuthorizationType()" type="button" class="authorization__redirectLink">Войдите</button>, если уже зарегистррованы.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="instruction">
+        <div class="container instruction__container">
+            <h1 class="instruction__title">Как отправить посылку?</h1>
+            <div class="instruction__slider">
+                <div class="instruction__fixed-side">
+                    <ul class="instruction__list">
+                        <li class="instruction__item instruction__item-active">
+                            <button class="instruction__item-button" onclick="toggleActiveSlide(this)">1</button>
+                            <p class="instruction__item-text">Найдите пункт почты</p>
+                        </li>
+                        <li class="instruction__item">
+                            <button class="instruction__item-button" onclick="toggleActiveSlide(this)">2</button>
+                            <p class="instruction__item-text">Выберите подходящую упаковку</p>
+                        </li>
+                        <li class="instruction__item">
+                            <button class="instruction__item-button" onclick="toggleActiveSlide(this)">3</button>
+                            <p class="instruction__item-text">Рассчитайте стоимость</p>
+                        </li>
+                        <li class="instruction__item">
+                            <button class="instruction__item-button" onclick="toggleActiveSlide(this)">4</button>
+                            <p class="instruction__item-text">Отправьте посылку</p>
+                        </li>
+                        <li class="instruction__item">
+                            <button class="instruction__item-button" onclick="toggleActiveSlide(this)">5</button>
+                            <p class="instruction__item-text">Отслеживайте посылку</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="instruction__replaceable-side">
+                    <ul class="instruction__replaceable-side-list">
+                        <li class="instruction__replaceable-side-item active">
+                            <h1 class="instruction__slider-title">1. Найдите пункт СДЭК</h1>
+                            <h3 class="instruction__slider-subtitle">ближайший найдется с домом или работой</h1>
+                            <a href="/error.html" alt="" class="instruction__slider-button">Карта офисов почты</a>
+                        </li>
+                        <li class="instruction__replaceable-side-item">
+                            <h1 class="instruction__slider-title">2. Выберите подходящую упаковку</h1>
+                            <h3 class="instruction__slider-subtitle">Мини описание</h1>
+                            <button class="instruction__slider-button">Кнопка</button>
+                        </li>
+                        <li class="instruction__replaceable-side-item">
+                            <h1 class="instruction__slider-title">3. Рассчитайте стоимость</h1>
+                            <h3 class="instruction__slider-subtitle">Мини описание</h1>
+                            <button class="instruction__slider-button">Кнопка</button>
+                        </li>
+                        <li class="instruction__replaceable-side-item">
+                            <h1 class="instruction__slider-title">4. Отправьте посылку</h1>
+                            <h3 class="instruction__slider-subtitle">Мини описание</h1>
+                            <button class="instruction__slider-button">Кнопка</button>
+                        </li>
+                        <li class="instruction__replaceable-side-item">
+                            <h1 class="instruction__slider-title">5. Отслеживайте посылку</h1>
+                            <h3 class="instruction__slider-subtitle">Мини описание</h1>
+                            <button class="instruction__slider-button">Кнопка</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const burgerMenu = document.querySelector(".burger-header-container");
+
+        function toggleBurgerMenu()
+        {
+            burgerMenu.classList.toggle("active");
+        }
+
+        const authorizationMenu = document.querySelector(".authorization");
+        function toggleAuthorizationMenu()
+        {
+            authorizationMenu.classList.toggle("active");
+        }
+
+        function swichAuthorizationType()
+        {
+            authorizationMenu.classList.toggle("register");
+        }
+
+
+        const items = document.querySelectorAll(".instruction__item");
+        function toggleActiveSlide(element)
+        {
+            for(let i = 0; i < items.length; i++)
+            {
+                items.item(i).classList.remove("instruction__item-active");
+
+                if(Number(element.innerHTML) - 1 === i)
+                {
+                    items.item(i).classList.add("instruction__item-active");
+                    toggleActiveSlideInfo(i);
+                }
+            }
+        }
+
+
+        const slides = document.querySelectorAll(".instruction__replaceable-side-item");
+        function toggleActiveSlideInfo(number)
+        {
+            console.log("Привет");
+            for(let i = 0; i < slides.length; i++)
+            {
+                slides.item(i).classList.remove("active");
+            }
+
+            slides.item(number).classList.add("active");
+        }
+    </script>
+</body>
+</html>
